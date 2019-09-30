@@ -199,7 +199,7 @@ function addScore(score) {
 }
 
 function clearScores() {
-  try {
+  // try {
 
     // let xhr = new XMLHttpRequest();
     // xhr.open('DELETE', '/api/scoreboard');
