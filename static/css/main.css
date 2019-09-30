@@ -18,8 +18,9 @@
     user-select: none;
 }
 
+/* Windows 95: #0D8584 */
 body {
-    background-color: pink;
+    background-color: #0D8584;
 }
 
 #board {
