@@ -1,0 +1,17 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  name: nodejs-codeready-stack
+  namespace: openshift
+spec:
+  tags:
+  - annotations:
+      description: Quarkus stack for Node.js and CodeReady Workspaces
+      iconClass: icon-javascript
+      supports: javascript
+      tags: builder,javascript
+      version: "1.0"
+    from:
+      kind: DockerImage
+      name: registry.redhat.io/codeready-workspaces/stacks-node-rhel8:latest
+    name: "1.0"

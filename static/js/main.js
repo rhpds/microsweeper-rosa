@@ -201,20 +201,20 @@ function addScore(score) {
 function clearScores() {
   try {
 
-    let xhr = new XMLHttpRequest();
-    xhr.open('DELETE', '/api/scoreboard');
-    xhr.onload = function () {
-      if (xhr.status === 204) {
+    // let xhr = new XMLHttpRequest();
+    // xhr.open('DELETE', '/api/scoreboard');
+    // xhr.onload = function () {
+    //   if (xhr.status === 204) {
         location.reload();
-      }
-      else {
-        alert('Clear failed.  Returned status of ' + xhr.status);
-      }
-    };
-    xhr.send();
-  } catch (ex) {
-    console.log(ex);
-  }
+  //     }
+  //     else {
+  //       alert('Clear failed.  Returned status of ' + xhr.status);
+  //     }
+  //   };
+  //   xhr.send();
+  // } catch (ex) {
+  //   console.log(ex);
+  // }
 
 }
 // function buildScores() {

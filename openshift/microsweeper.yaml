@@ -38,15 +38,15 @@ spec:
       - image: microsweeper:latest
         imagePullPolicy: Always
         livenessProbe:
-          failureThreshold: 3
+          failureThreshold: 10
           httpGet:
             path: /
-            port: 8080
+            port: 3000
             scheme: HTTP
-          initialDelaySeconds: 45
+          initialDelaySeconds: 15
           periodSeconds: 10
           successThreshold: 1
-          timeoutSeconds: 1
+          timeoutSeconds: 5
         name: microsweeper
         ports:
         - containerPort: 3000
@@ -58,12 +58,12 @@ spec:
         - containerPort: 8778
           protocol: TCP
         readinessProbe:
-          failureThreshold: 3
+          failureThreshold: 10
           httpGet:
             path: /
             port: 3000
             scheme: HTTP
-          initialDelaySeconds: 45
+          initialDelaySeconds: 15
           periodSeconds: 10
           successThreshold: 1
           timeoutSeconds: 5
@@ -77,14 +77,6 @@ spec:
       terminationGracePeriodSeconds: 30
   test: false
   triggers:
-  - imageChangeParams:
-      containerNames:
-      - microsweeper
-      from:
-        kind: ImageStreamTag
-        name: microsweeper:latest
-        namespace: microsweeper
-    type: ImageChange
 ---
 apiVersion: v1
 kind: Service
