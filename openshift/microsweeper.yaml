@@ -21,13 +21,7 @@ spec:
   strategy:
     activeDeadlineSeconds: 21600
     resources: {}
-    rollingParams:
-      intervalSeconds: 1
-      maxSurge: 25%
-      maxUnavailable: 25%
-      timeoutSeconds: 600
-      updatePeriodSeconds: 1
-    type: Rolling
+    type: Recreate
   template:
     metadata:
       labels:
@@ -77,6 +71,13 @@ spec:
       terminationGracePeriodSeconds: 30
   test: false
   triggers:
+  - imageChangeParams:
+      containerNames:
+      - microsweeper
+      from:
+        kind: ImageStreamTag
+        name: microsweeper:latest
+    type: ImageChange
 ---
 apiVersion: v1
 kind: Service
