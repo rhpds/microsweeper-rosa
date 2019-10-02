@@ -12,6 +12,7 @@
     "url": "git://github.com/jamesfalkner/microsweeper-js.git"
   },
   "dependencies": {
+    "@types/node": "^12.7.9",
     "express": "^4.13.4"
   },
   "devDependencies": {
